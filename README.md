@@ -1,2 +1,1 @@
-# GedcomPDF
-generate PDF from gedcom file
+for DAZUPU.org
