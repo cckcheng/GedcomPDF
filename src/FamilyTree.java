@@ -232,7 +232,7 @@ public class FamilyTree {
 	}
 
 	public DefaultMutableTreeNode getRoot() {
-		int depth = 1;
+		int depth = 0;
 		DefaultMutableTreeNode top = null;
 		DefaultMutableTreeNode node = null;
 		for(Family fam : this.familyList) {
