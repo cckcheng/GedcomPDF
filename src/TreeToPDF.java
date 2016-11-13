@@ -661,7 +661,7 @@ public class TreeToPDF {
 	List<DefaultMutableTreeNode> pendingNodes = new ArrayList<DefaultMutableTreeNode>();
 	List<List<String>> notes = new ArrayList<List<String>>();
 	public void generatePDF(String outputName) {
-		String pdfName = outputName;
+		String pdfName = (this.layout == VERTICAL ? "tmp_" + outputName : outputName);
 		this.doc = new Document(PageSize.A4);
 		if(this.layout == HORIZONTAL){
 			this.mainTableWidth = 90f;
@@ -761,9 +761,7 @@ public class TreeToPDF {
 
 		try {
 			if(this.layout == VERTICAL) {
-				pdfName += ".tmp.pdf";
-				rotatePdf(outputName, pdfName, 90);
-				copyPdf(pdfName, outputName);
+				rotatePdf(pdfName, outputName, 90);
 				new File(pdfName).deleteOnExit();
 //			} else {
 //				copyPdf(pdfName, "test.pdf");
